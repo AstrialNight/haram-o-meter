@@ -95,8 +95,10 @@
         // ip stuff
         fetch("https://api.ipify.org")
             .then(res => {
-                let ip = res.text();
-                alert("Haha get hack noob!1!11!!! UR IP IS " + ip)
+                res.text()
+                    .then(ip => {
+                        alert("Haha get hack noob!1!11!!! UR IP IS " + ip);
+                    });
             });
     </script>
 </body>
