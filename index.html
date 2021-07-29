@@ -68,38 +68,39 @@
             };
         }
 
-        var percent = getHaram();
+        function generate() {
+            var percent = getHaram();
 
-        if (is0() === true) {
-            percent = 0;
-        };
-        if (is69() === true) {
-            percent = 69;
-        }
-
-        if (percent <= 50) {
-            mainTitle.style.color = "rgb(70, 233, 111)";
-            if (percent > 30) {
-                mainTitle.style.color = "rgb(223, 186, 66)";
+            if (is0() === true) {
+                percent = 0;
+            };
+            if (is69() === true) {
+                percent = 69;
             }
-        }
-        if (percent >= 50) {
-            mainTitle.style.color = "rgb(231, 94, 15)";
-            if (percent >= 65) {
-                mainTitle.style.color = "rgb(216, 0, 0)";
+
+            if (percent <= 50) {
+                mainTitle.style.color = "rgb(70, 233, 111)";
+                if (percent > 30) {
+                    mainTitle.style.color = "rgb(223, 186, 66)";
+                }
             }
+            if (percent >= 50) {
+                mainTitle.style.color = "rgb(231, 94, 15)";
+                if (percent >= 65) {
+                    mainTitle.style.color = "rgb(216, 0, 0)";
+                }
+            }
+
+            mainTitle.innerText = `You are ${percent}% haram!`;
         }
 
-        mainTitle.innerText = `You are ${percent}% haram!`;
-        
-        // ip stuff
-        fetch("https://api.ipify.org")
-            .then(res => {
-                res.text()
-                    .then(ip => {
-                        alert("Haha get hack noob!1!11!!! UR IP IS " + ip);
-                    });
-            });
+        var waitLen = 30;
+        var time = waitLen;
+        for (var i = 0; i < 19; i++) {
+            time += waitLen;
+            setTimeout(generate, time+1);
+            console.log("doing stuff")
+        }
     </script>
 </body>
 </html>
