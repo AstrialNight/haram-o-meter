@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haram-O-Meter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <div id="holder">
+        <h1 id="mainTitle">You are 0% haram!</h1>
+    </div>
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        @keyframes textAnim {
+            from {opacity: 0; font-size: 0px;}
+            to {opacity: 1; font-size: 440%;}
+        }
+
+        #holder {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #mainTitle {
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 440%;
+            animation-name: textAnim;
+            animation-duration: 1s;
+            color: #000;
+        }
+    </style>
+
+    <script>
+        const bools = {0: false, 1: true};
+
+        function rand(min, max) {
+            return Math.round(((Math.random() + min) * max));
+        };
+        function getHaram() {
+            return rand(0, 100);
+        };
+        function is0() {
+            let randomInt = rand(0, 2);
+            if (randomInt === 0) {
+                return true;
+            } else {
+                return false;
+            };
+        };
+        function is69() {
+            let randomInt = rand(0, 3);
+            if (randomInt === 0) {
+                return true;
+            } else {
+                return false;
+            };
+        }
+
+        var percent = getHaram();
+
+        if (is0() === true) {
+            percent = 0;
+        };
+        if (is69() === true) {
+            percent = 69;
+        }
+
+        if (percent <= 50) {
+            mainTitle.style.color = "rgb(70, 233, 111)";
+            if (percent > 30) {
+                mainTitle.style.color = "rgb(223, 186, 66)";
+            }
+        }
+        if (percent >= 50) {
+            mainTitle.style.color = "rgb(231, 94, 15)";
+            if (percent >= 65) {
+                mainTitle.style.color = "rgb(216, 0, 0)";
+            }
+        }
+
+        mainTitle.innerText = `You are ${percent}% haram!`;
+    </script>
+</body>
+</html>
